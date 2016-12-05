@@ -65,18 +65,23 @@ class Sha1Hash(object):
     def __init__(self):
         # Initial digest variables
         self._h = (
-            0x67452301,
-            0xEFCDAB89,
-            0x98BADCFE,
-            0x10325476,
-            0xC3D2E1F0,
+            0xf4b645e8, # 0xF4B645E8,
+            0x9faaec2f, # 0x9FAAEC2f,
+            0xf8e443c5, # 0xF8E443C5,
+            0x95009c16, # 0x95009C16,
+            0xdbdfba4b, # 0xDBDFBA4B,
+            # 0x67452301,
+            # 0xEFCDAB89,
+            # 0x98BADCFE,
+            # 0x10325476,
+            # 0xC3D2E1F0,
         )
 
         # bytes object with 0 <= len < 64 used to store the end of the message
         # if the message length is not congruent to 64
         self._unprocessed = b''
         # Length in bytes of all data that has been processed so far
-        self._message_byte_length = 0
+        self._message_byte_length = 128 # 0
 
     def update(self, arg):
         """Update the current digest.
